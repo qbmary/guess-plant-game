@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<input class="language" name="language" id="ru" type="radio">
+<input class="language" name="language" id="en" type="radio" checked>
+<input class="theme" name="theme" id="light" type="radio" >
+<input class="theme" name="theme" id="dark" type="radio" checked>
+<form class="content">
+    <div class="controls">
+        <button class="btn btn-reset" type="reset">
+            <img class="dark" src="img/Dark reset.svg" alt="reset">
+            <img class="light" src="img/Light reset.svg" alt="reset">
+        </button>
+        <label class="btn btn-ru" for="ru">
+            <img class="dark" src="img/Dark Ru.svg" alt="ru">
+            <img class="light" src="img/Light Ru.svg" alt="ru">
+        </label>
+        <label class="btn btn-en" for="en">
+            <img class="dark" src="img/Dark En.svg" alt="en">
+            <img class="light" src="img/Light En.svg" alt="en">
+        </label>
+        <label class="btn btn-light" for="light">
+            <img class="dark" src="img/Dark sun.svg" alt="sun">
+            <img class="light" src="img/Light sun.svg" alt="sun">
+        </label>
+        <label class="btn btn-dark" for="dark">
+            <img class="dark" src="img/Dark moon.svg" alt="moon">
+            <img class="light" src="img/Light moon.svg" alt="moon">
+        </label>
+    </div>
+    <h1 class="header">
+        <span class="en">Guess the plant!</span>
+        <span class="ru">Угадай растение!</span>
+    </h1>
+    <div class="cards">
+        <div class="card">
+            <input id="peashooter" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="peashooter">
+                <img  class="card-img" src="img/Peashooter.png" alt="Peashooter">
+            </label>
+            <div class="tooltip">
+                <span class="en">Peashooter</span>
+                <span class="ru">Горохострел</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="sunflower" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="sunflower">
+                <img  class="card-img" src="img/Sunflower.png" alt="Sunflower">
+            </label>
+            <div class="tooltip">
+                <span class="en">Sunflower</span>
+                <span class="ru">Подсолнух</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="cherry-bomb" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="cherry-bomb">
+                <img  class="card-img" src="img/Cherry%20Bomb.png" alt="Cherry Bomb">
+            </label>
+            <div class="tooltip">
+                <span class="en">Cherry bomb</span>
+                <span class="ru">Черри бомба</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="wall-nut" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="wall-nut">
+                <img  class="card-img" src="img/Wall-nut.png" alt="Wall-nut">
+            </label>
+            <div class="tooltip">
+                <span class="en">Wallnut</span>
+                <span class="ru">Стенорех</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="potato-mine" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="potato-mine">
+                <img  class="card-img" src="img/Potato%20Mine.png" alt="Potato Mine">
+            </label>
+            <div class="tooltip">
+                <span class="en">Potato mine</span>
+                <span class="ru">Мина</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="snow-pea" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="snow-pea">
+                <img  class="card-img" src="img/Snow%20Pea.png" alt="Snow Pea">
+            </label>
+            <div class="tooltip">
+                <span class="en">Snow pea</span>
+                <span class="ru">Ледогорох</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="chomper" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="chomper">
+                <img  class="card-img" src="img/Chomper.png" alt="Chomper">
+            </label>
+            <div class="tooltip">
+                <span class="en">Chomper</span>
+                <span class="ru">Зубастик</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="repeater" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="repeater">
+                <img  class="card-img" src="img/Repeater.png" alt="Repeater">
+            </label>
+            <div class="tooltip">
+                <span class="en">Repeater</span>
+                <span class="ru">Повторитель</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="puff-shroom" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="puff-shroom">
+                <img  class="card-img" src="img/Puff-shroom.png" alt="Puff-shroom">
+            </label>
+            <div class="tooltip">
+                <span class="en">Puff shroom</span>
+                <span class="ru">Пуфгриб</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="sun-shroom" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="sun-shroom">
+                <img  class="card-img" src="img/Sun-shroom.png" alt="Sun-shroom">
+            </label>
+            <div class="tooltip">
+                <span class="en">Sun shroom</span>
+                <span class="ru">Солнцегриб</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="fume-shroom" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="fume-shroom">
+                <img  class="card-img" src="img/Fume-shroom.png" alt="Fume-shroom">
+            </label>
+            <div class="tooltip">
+                <span class="en">Fume shroom</span>
+                <span class="ru">Дымогриб</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="grave-buster" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="grave-buster">
+                <img  class="card-img" src="img/Grave%20Buster.png" alt="Grave Buster">
+            </label>
+            <div class="tooltip">
+                <span class="en">Grave buster</span>
+                <span class="ru">Могилоед</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="hypno-shroom" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="hypno-shroom">
+                <img  class="card-img" src="img/Hypno-shroom.png" alt="Hypno-shroom">
+            </label>
+            <div class="tooltip">
+                <span class="en">Hypno shroom</span>
+                <span class="ru">Гипногриб</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="scaredy-shroom" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="scaredy-shroom">
+                <img  class="card-img" src="img/Scaredy-shroom.png" alt="Scaredy-shroom">
+            </label>
+            <div class="tooltip">
+                <span class="en">Scary shroom</span>
+                <span class="ru">Трусогриб</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="ice-shroom" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="ice-shroom">
+                <img  class="card-img" src="img/Ice-shroom.png" alt="Ice-shroom">
+            </label>
+            <div class="tooltip">
+                <span class="en">Ice shroom</span>
+                <span class="ru">Ледогриб</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="doom-shroom" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="doom-shroom">
+                <img  class="card-img" src="img/Doom-shroom.png" alt="Doom-shroom">
+            </label>
+            <div class="tooltip">
+                <span class="en">Doom shroom</span>
+                <span class="ru">Ядерный Гриб</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="lily-pad" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="lily-pad">
+                <img  class="card-img" src="img/Lily%20Pad.png" alt="Lily Pad">
+            </label>
+            <div class="tooltip">
+                <span class="en">Lily pad</span>
+                <span class="ru">Кувшинка</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="squash" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="squash">
+                <img  class="card-img" src="img/Squash.png" alt="Squash">
+            </label>
+            <div class="tooltip">
+                <span class="en">Squash</span>
+                <span class="ru">Кабачок</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="threepeater" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="threepeater">
+                <img  class="card-img" src="img/Threepeater.png" alt="Threepeater">
+            </label>
+            <div class="tooltip">
+                <span class="en">Threepeater</span>
+                <span class="ru">Тристрел</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="tangle-kelp" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="tangle-kelp">
+                <img  class="card-img" src="img/Tangle%20Kelp.png" alt="Tangle Kelp">
+            </label>
+            <div class="tooltip">
+                <span class="en">Tangle kelp</span>
+                <span class="ru">Водоросли</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="jalapeno" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="jalapeno">
+                <img  class="card-img" src="img/Jalapeno.png" alt="Jalapeno">
+            </label>
+            <div class="tooltip">
+                <span class="en">Pepper</span>
+                <span class="ru">Перец</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="spikeweed" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="spikeweed">
+                <img  class="card-img" src="img/Spikeweed.png" alt="Spikeweed">
+            </label>
+            <div class="tooltip">
+                <span class="en">Spikeweed</span>
+                <span class="ru">Колючка</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="torchwood" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="torchwood">
+                <img  class="card-img" src="img/Torchwood.png" alt="Torchwood">
+            </label>
+            <div class="tooltip">
+                <span class="en">Torchwood</span>
+                <span class="ru">Древофакел</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="tall-nut" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="tall-nut">
+                <img  class="card-img" src="img/Tall-nut.png" alt="Tall-nut">
+            </label>
+            <div class="tooltip">
+                <span class="en">Tall nut</span>
+                <span class="ru">Высокий орех</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="sea-shroom" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="sea-shroom">
+                <img  class="card-img" src="img/Sea-shroom.png" alt="Sea-shroom">
+            </label>
+            <div class="tooltip">
+                <span class="en">Sea shroom</span>
+                <span class="ru">Морегриб</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="plantern" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="plantern">
+                <img  class="card-img" src="img/Plantern.png" alt="Plantern">
+            </label>
+            <div class="tooltip">
+                <span class="en">Plantern</span>
+                <span class="ru">Фонарь</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="cactus" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="cactus">
+                <img  class="card-img" src="img/Cactus.png" alt="Cactus">
+            </label>
+            <div class="tooltip">
+                <span class="en">Cactus</span>
+                <span class="ru">Кактус</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="blover" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="blover">
+                <img  class="card-img" src="img/Blover.png" alt="Blover">
+            </label>
+            <div class="tooltip">
+                <span class="en">Blover</span>
+                <span class="ru">Сдуватель</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="split-pea" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="split-pea">
+                <img  class="card-img" src="img/Split%20Pea.png" alt="Split Pea">
+            </label>
+            <div class="tooltip">
+                <span class="en">Split pea</span>
+                <span class="ru">Двустрел</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="starfruit" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="starfruit">
+                <img  class="card-img" src="img/Starfruit.png" alt="Starfruit">
+            </label>
+            <div class="tooltip">
+                <span class="en">Starfruit</span>
+                <span class="ru">Звездофрукт</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="pumpkin" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="pumpkin">
+                <img  class="card-img" src="img/Pumpkin.png" alt="Pumpkin">
+            </label>
+            <div class="tooltip">
+                <span class="en">Pumpkin</span>
+                <span class="ru">Тыква</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="magnet-shroom" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="magnet-shroom">
+                <img  class="card-img" src="img/Magnet-shroom.png" alt="Magnet-shroom">
+            </label>
+            <div class="tooltip">
+                <span class="en">Magnet shroom</span>
+                <span class="ru">Магнитогриб</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="cabbage-pult" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="cabbage-pult">
+                <img  class="card-img" src="img/Cabbage-pult.png" alt="Cabbage-pult">
+            </label>
+            <div class="tooltip">
+                <span class="en">Cabbage pult</span>
+                <span class="ru">Капустопульта</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="flower-pot" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="flower-pot">
+                <img  class="card-img" src="img/Flower%20Pot.png" alt="Flower Pot">
+            </label>
+            <div class="tooltip">
+                <span class="en">Flower pot</span>
+                <span class="ru">Горшок</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="kernel-pult" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="kernel-pult">
+                <img  class="card-img" src="img/Kernel-pult.png" alt="Kernel-pult">
+            </label>
+            <div class="tooltip">
+                <span class="en">Kernel pult</span>
+                <span class="ru">Зернопульта</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="coffee-bean" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="coffee-bean">
+                <img  class="card-img" src="img/Coffee%20Bean.png" alt="Coffee Bean">
+            </label>
+            <div class="tooltip">
+                <span class="en">Coffee bean</span>
+                <span class="ru">Кофейный Боб</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="garlic" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="garlic">
+                <img  class="card-img" src="img/Garlic.png" alt="Garlic">
+            </label>
+            <div class="tooltip">
+                <span class="en">Garlic</span>
+                <span class="ru">Чеснок</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="umbrella-leaf" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="umbrella-leaf">
+                <img  class="card-img" src="img/Umbrella%20Leaf.png" alt="Umbrella Leaf">
+            </label>
+            <div class="tooltip">
+                <span class="en">Umbrella leaf</span>
+                <span class="ru">Пальма</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="marigold" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="marigold">
+                <img  class="card-img" src="img/Marigold.png" alt="Marigold">
+            </label>
+            <div class="tooltip">
+                <span class="en">Marigold</span>
+                <span class="ru">Календула</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="melon-pult" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="melon-pult">
+                <img  class="card-img" src="img/Melon-pult.png" alt="Melon-pult">
+            </label>
+            <div class="tooltip">
+                <span class="en">Melon pult</span>
+                <span class="ru">Арбузопульта</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="gatling-pea" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="gatling-pea">
+                <img  class="card-img" src="img/Gatling%20Pea.png" alt="Gatling Pea">
+            </label>
+            <div class="tooltip">
+                <span class="en">Gatling pea</span>
+                <span class="ru">Горохомёт</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="twin-sunflower" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="twin-sunflower">
+                <img  class="card-img" src="img/Twin%20Sunflower.png" alt="Twin Sunflower">
+            </label>
+            <div class="tooltip">
+                <span class="en">Twin sunflow</span>
+                <span class="ru">Двусолнух</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="gloom-shroom" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="gloom-shroom">
+                <img  class="card-img" src="img/Gloom-shroom.png" alt="Gloom-shroom">
+            </label>
+            <div class="tooltip">
+                <span class="en">Gloom shroom</span>
+                <span class="ru">Мракогриб</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="cattail" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="cattail">
+                <img  class="card-img" src="img/Cattail.png" alt="Cattail">
+            </label>
+            <div class="tooltip">
+                <span class="en">Cattail</span>
+                <span class="ru">Рогоз</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="winter-melon" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="winter-melon">
+                <img  class="card-img" src="img/Winter%20Melon.png" alt="Winter Melon">
+            </label>
+            <div class="tooltip">
+                <span class="en">Winter melon</span>
+                <span class="ru">Фризарбуз</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="gold-magnet" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="gold-magnet">
+                <img  class="card-img" src="img/Gold%20Magnet.png" alt="Gold Magnet">
+            </label>
+            <div class="tooltip">
+                <span class="en">Gold magnet</span>
+                <span class="ru">Голдмагнит</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="spikerock" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="spikerock">
+                <img  class="card-img" src="img/Spikerock.png" alt="Spikerock">
+            </label>
+            <div class="tooltip">
+                <span class="en">Spikerock</span>
+                <span class="ru">Шипокамень</span>
+            </div>
+        </div>
+        <div class="card">
+            <input id="cob-cannon" class="card-checkbox" type="checkbox">
+            <label class="card-label" for="cob-cannon">
+                <img  class="card-img" src="img/Cob%20Cannon.png" alt="Cob Cannon">
+            </label>
+            <div class="tooltip">
+                <span class="en">Cob cannon</span>
+                <span class="ru">Кукурузопушка</span>
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>

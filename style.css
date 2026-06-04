@@ -1,0 +1,317 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    -webkit-user-drag: none;
+}
+
+:root {
+    --dark-text: #D2D4D8;
+    --dark-bg-hover: #4E4F50;
+    --dark-bg: #18191A;
+    --dark-bg-selected: #263951;
+    --dark-bg-tooltip: #C8C8C8;
+    --dart-text-tooltip: #050505;
+
+    --light-text: #65676B;
+    --light-bg-hover: #F2F2F2;
+    --light-bg: #FFFFFF;
+    --light-bg-selected: #E7F3FF;
+    --light-bg-tooltip: #373838;
+    --light-text-tooltip: #D2D4D8;
+
+    --header-padding: 20px;
+    --header-font-size: 55px;
+
+    --card-size: 96px;
+    --card-border-radius: 12px;
+    --card-column-gap: 20px;
+    --card-row-gap: 60px;
+
+    --tooltip-border-radius: 8px;
+    --tooltip-font-size: 15px;
+
+    --btn-size: 36px;
+    --btn-border-radius: 12px;
+
+    --control-column-gap: 6px;
+    --control-row-gap: 12px;
+
+    --container-max-width: calc(
+            var(--cards-per-row) * var(--card-size) +
+            (var(--cards-per-row) - 1) * var(--card-column-gap)
+    );
+
+    --transition-duration: 0.2s;
+
+    --cards-per-row: 8;
+
+    --cards-grid-template: repeat(var(--cards-per-row), 1fr);
+}
+
+.btn-reset {
+    grid-area: reset;
+}
+
+.btn-ru {
+    grid-area: ru;
+}
+
+.btn-en {
+    grid-area: en;
+}
+
+.btn-light {
+    grid-area: light;
+}
+
+.btn-dark {
+    grid-area: dark;
+}
+
+.content {
+    transition: all var(--transition-duration);
+    padding-bottom: var(--card-row-gap);
+}
+
+.controls {
+    max-width: var(--container-max-width);
+    padding: var(--header-padding) 0;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 40px);
+    justify-items: end;
+    justify-content: end;
+
+    grid-template-areas:
+    "reset  ru      en"
+    ".      light   dark";
+
+    row-gap: var(--control-row-gap);
+}
+
+.header {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    top: var(--header-padding);
+    font-size: var(--header-font-size);
+    font-weight: 700;
+    user-select: none;
+}
+
+.top-controls, .bot-controls {
+    display: flex;
+    column-gap: var(--control-column-gap);
+    align-items: center;
+}
+
+.cards {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    place-items: center;
+    display: grid;
+    grid-template-columns: var(--cards-grid-template);
+    gap: var(--card-row-gap) var(--card-column-gap);
+}
+
+.card {
+    width: var(--card-size);
+    height: var(--card-size);
+    border-radius: var(--card-border-radius);
+    position: relative;
+    -webkit-user-drag: none;
+    user-select: none;
+    transition: var(--transition-duration);
+}
+
+.card .card-label {
+    cursor: pointer;
+}
+
+.card .card-checkbox {
+    display: none;
+}
+
+.tooltip {
+    display: flex;
+    justify-content: center;
+    min-width: max-content;
+    width: 96px;
+    position: absolute;
+    left: 50%;
+    transform-origin: top left;
+    font-size: var(--tooltip-font-size);
+    font-weight: 600;
+    border-radius: var(--tooltip-border-radius);
+    padding: 0.4em;
+    transform: scale(0) translate(-50%);
+}
+
+.card:hover .tooltip {                           /*при наведении на карточку вылазит тултип*/
+    transform: scale(1) translate(-50%);
+}
+
+.card-checkbox:checked ~ .card-label .card-img { /*затемнение карточки при ее отключении*/
+    opacity: 0.15;
+}
+
+.card-checkbox:checked ~ .tooltip {              /*при отключении карточки пропадает и тултип*/
+    display: none;
+}
+
+.btn {
+    width: var(--btn-size);
+    height: var(--btn-size);
+    border-radius: var(--btn-border-radius);
+    border: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    transition: all var(--transition-duration);
+}
+
+.language, .theme {                                     /*корректное отображение инпутов с темой, языком и сбросом*/
+    display: none;
+}
+
+
+:root:has(#en:checked) .content .ru, :root:has(#ru:checked) .content .en { /*отображение только одного языка в тултипе*/
+    display: none;
+}
+
+:root:has(#en:checked):has(#dark:checked) .btn-en, :root:has(#ru:checked):has(#dark:checked) .btn-ru { /*подстветка кнопки языка в темной теме*/
+    background: var(--dark-bg-selected);
+}
+
+:root:has(#en:checked):has(#light:checked) .btn-en, :root:has(#ru:checked):has(#light:checked) .btn-ru { /*подсветка кнопки языка в светлой теме*/
+    background: var(--light-bg-selected);
+}
+
+:root:has(#dark:checked) .light, :root:has(#light:checked) .dark { /*не наползание кнопок темной и светлой тем темы, языка и сброса друг на друга*/
+    display: none;
+}
+
+:root:has(#dark:checked) .content, :root:has(#dark:checked) .content .btn { /*по умолчанию темный фон*/
+    background: var(--dark-bg);
+}
+
+:root:has(#dark:checked) .content .header {             /*по умолчанию светлый текст для*/
+    color: var(--dark-text);
+}
+
+:root:has(#dark:checked) .content .btn:hover {          /*по умолчанию более светлый цвет при наведение на кнопки в темной теме*/
+    background: var(--dark-bg-hover);
+}
+
+:root:has(#dark:checked) .content .btn.btn-dark {       /*подсветка кнопки темы в темной теме*/
+    background: var(--dark-bg-selected);
+}
+
+:root:has(#dark:checked) .content .tooltip {            /*светлый фон тултипа в темной*/
+    background: var(--dark-bg-tooltip);
+    color: var(--dart-text-tooltip);
+}
+
+:root:has(#light:checked) .content, :root:has(#light:checked) .content .btn { /*подсветка кнопки сброса в светлой теме при наведении*/
+    background: var(--light-bg);
+}
+
+:root:has(#light:checked) .content .header {            /*серый, а не черный цвет заголовка в светлой теме*/
+    color: var(--light-text);
+}
+
+:root:has(#light:checked) .content .btn:hover {         /*подсветка кнопок темы, языка и сброса при наведении*/
+    background: var(--light-bg-hover);
+}
+
+:root:has(#light:checked) .btn.btn-light {              /*подсветка кнопки светлой темы в светлой теме*/
+    background: var(--light-bg-selected);
+}
+
+:root:has(#light:checked) .tooltip {                    /*темный фон и светлый текст у тултипов в свелой теме*/
+    background: var(--light-bg-tooltip);
+    color: var(--light-text-tooltip);
+}
+
+@media (min-height: 1110px) and (min-width: 961px) {
+    :root {
+        --card-row-gap: 168px;
+    }
+}
+
+@media (min-height: 1110px) and (width: 1025px) {
+    :root {
+        --card-row-gap: 129px;
+    }
+}
+
+@media (min-height: 1280px) and (min-width: 1067px) {
+    :root {
+        --card-row-gap: 150px;
+    }
+}
+
+@media (height: 1708px) and (width: 1280px) {
+    :root {
+        --card-row-gap: 168px;
+    }
+}
+
+@media (max-width: 520px) {
+    :root {
+        --container-max-width: 232px;
+        --cards-per-row: 2;
+        --card-column-gap: 40px;
+    }
+
+    .header {
+        display: none;
+    }
+}
+
+@media (min-width: 521px) and (max-width: 960px) {
+    :root {
+        --container-max-width: 504px;
+        --cards-per-row: 4;    
+        --card-column-gap: 30px;               
+    }
+
+    .header {
+        display: none;
+    }
+}
+
+@media (min-width: 961px) {
+    :root {
+        --cards-per-row: 8;
+        --card-column-gap: 20px;
+    }
+}
+
+@media (hover: none) {
+    * {
+        -webkit-tap-highlight-color: transparent;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+
+    .card:active {
+        transform: scale(1.1);
+    }
+
+    :root:has(#dark:checked) .content .btn:active {
+        background: var(--dark-bg-hover);
+    }
+
+    :root:has(#light:checked) .content .btn:active {
+        background: var(--light-bg-hover);
+    }
+
+    .card .tooltip {
+        transform: scale(1) translate(-50%);
+    }
+}
